@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
+import { UsersService } from './shared/services/users.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,9 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     AlertModule.forRoot(),
     BrowserAnimationsModule,
-    AuthModule
+    AuthModule,
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
