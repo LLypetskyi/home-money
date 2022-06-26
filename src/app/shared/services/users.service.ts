@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import 'rxjs/Rx';
+import { map, Observable } from 'rxjs';
 
 import { User } from '../models/user.model';
 
@@ -11,9 +9,10 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  getUserByEmail(email: string): Observable <User> {
+ getUserByEmail(email: string): Observable<any> {
     return this.http.get(`http://localhost:3000/users?email=${email}`)
-      .map((respons: any) => respons.json());
+      .pipe(map((user: any) => user[0] ? user[0] : undefined));
   }
+
 
 }

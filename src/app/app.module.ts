@@ -7,6 +7,8 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { UsersService } from './shared/services/users.service';
+import { HttpClientModule } from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { UsersService } from './shared/services/users.service';
     AlertModule.forRoot(),
     BrowserAnimationsModule,
     AuthModule,
+    HttpClientModule
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]
