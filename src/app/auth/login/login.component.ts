@@ -21,21 +21,21 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.message = new Message('danger', '');
 
     this.route.queryParams
-    .subscribe((params: Params) => {
-      if (params['nowCanLogin']) {
-        this.showMessage({
-          text: 'Тепер Ви можете зайти в систему',
-          type: 'success'
-        });
-      }
-    });
-   
+      .subscribe((params: Params) => {
+        if (params['nowCanLogin']) {
+          this.showMessage({
+            text: 'Тепер Ви можете зайти в систему',
+            type: 'success'
+          });
+        }
+      });
+
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   private showMessage(message: Message) {
     this.message = message;
-    
+
     window.setTimeout(() => {
       this.message.text = '';
     }, 5000);
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
           this.message.text = '';
           window.localStorage.setItem('user', JSON.stringify(user));
           this.authService.login();
-          // this.router.navigate(['']);
+          this.router.navigate(['/system', 'bill']);
         } else {
           this.showMessage({
             text: 'Пароль не вірний',

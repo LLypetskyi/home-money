@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, AsyncValidatorFn, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { User } from 'src/app/shared/models/user.model';
 import { UsersService } from '../../shared/services/users.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails.bind(this)),
+      'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails()),
       'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
       'name': new FormControl(null, [Validators.required]),
       'agree': new FormControl(false, [Validators.requiredTrue]),
@@ -39,22 +40,14 @@ export class RegistrationComponent implements OnInit {
           queryParams: {
             nowCanlogin : true,
           }
-        }
-        )
+        })
       });
   }
 
-  forbiddenEmails(control: FormControl): Promise<any> {
-    return new Promise ((resolve, reject)=>{
-      this.usersService.getUserByEmail(control.value)
-        .subscribe((user: User)=> {
-          if (user){
-            resolve({forbiddenEmail: true});
-          } else {
-            resolve(null);
-          }
-        });
-    });
+  forbiddenEmails(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<{ [key: string]: any } | null> => {
+      return this.usersService.getUserByEmail(control.value);
+    };
   }
 
 

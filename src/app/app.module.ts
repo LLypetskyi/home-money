@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersService } from './shared/services/users.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './shared/services/auth.service';
+import { SystemModule } from './system/system.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { AuthService } from './shared/services/auth.service';
     BrowserAnimationsModule,
     AuthModule,
     HttpClientModule,
+    SystemModule
   ],
   providers: [UsersService, AuthService],
   bootstrap: [AppComponent],
