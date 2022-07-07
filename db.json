@@ -4,22 +4,22 @@
       "id": 1,
       "email": "wfm@mail.ru",
       "password": "12345678",
-      "name": "Администратор"
+      "name": "Адмін"
     }
     
   ],
   "bill": {
     "value": 100000,
-    "currency": "RUB"
+    "currency": "UAH"
   },
   "categories": [
     {
-      "name": "Дом",
+      "name": "Дім",
       "capacity": 15000,
       "id": 1
     },
     {
-      "name": "Еда",
+      "name": "Їжа",
       "capacity": 10000,
       "id": 2
     },
@@ -44,7 +44,7 @@
       "amount": 1300,
       "category": 1,
       "date": "13.06.2017 19:49:02",
-      "description": "Купил посудомоечную машину"
+      "description": "Купив посудомийку"
     },
     {
       "type": "income",
@@ -52,7 +52,7 @@
       "category": 2,
       "date": "17.06.2017 14:00:48",
       "id": 3,
-      "description": "Поход в окей с баллами. Бесплатная еда"
+      "description": "Похід в Білий Лев з баллами. Безкоштовна їжа"
     },
     {
       "type": "outcome",
@@ -60,7 +60,7 @@
       "category": 2,
       "date": "17.06.2017 14:00:58",
       "id": 4,
-      "description": "Закупка на неделю"
+      "description": "Закупівля на тиждень"
     },
     {
       "type": "outcome",
@@ -68,7 +68,7 @@
       "category": 3,
       "date": "10.06.2017 14:01:58",
       "id": 5,
-      "description": "Заправка + проход ТО"
+      "description": "Заправка + ТО"
     }
   ]
 }
