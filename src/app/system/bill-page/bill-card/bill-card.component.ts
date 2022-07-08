@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Bill } from '../../shared/models/bill.model';
 import { BillService } from '../../shared/services/bill.service';
 
 @Component({
@@ -7,6 +8,9 @@ import { BillService } from '../../shared/services/bill.service';
   styleUrls: ['./bill-card.component.scss']
 })
 export class BillCardComponent implements OnInit {
+
+  @Input() bill!: Bill;
+  @Input() currency: any;
 
   constructor() { }
 

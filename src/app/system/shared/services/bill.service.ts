@@ -13,12 +13,13 @@ export class BillService {
     return this.http.get('http://localhost:3000/bill');
   }
 
-  getCurrency(base: string = 'USD'): Observable<any> {
-    console.log('buvbu getCurrency ');
-    let headers = new HttpHeaders();
-    headers = headers.set('apikey', 'zgYlIOIgWkizTfEJBFfIxWC3HqXwtZKC');
-
-    console.log('getCurrency httpOptions ', { headers: headers });
-    return this.http.get(`https://api.apilayer.com/fixer/latest?base=${base}`, { headers: headers });
+  getCurrency(base: string = 'UAH'): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'apiKey': 'zgYlIOIgWkizTfEJBFfIxWC3HqXwtZKC'
+      })
+    };
+    return this.http.get(`https://api.apilayer.com/fixer/latest?base=${base}`, httpOptions);
   }
 }
