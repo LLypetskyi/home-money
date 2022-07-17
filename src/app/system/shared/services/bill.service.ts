@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { Bill } from '../models/bill.model';
 import { BaseApi } from 'src/app/shared/core/base-api';
 
 @Injectable({
