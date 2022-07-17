@@ -2,11 +2,10 @@
   "users": [
     {
       "id": 1,
-      "email": "wfm@mail.ru",
+      "email": "wfm@gmail.com",
       "password": "12345678",
       "name": "Адмін"
     }
-    
   ],
   "bill": {
     "value": 100000,
@@ -27,7 +26,7 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
-    }
+    }  
   ],
   "events": [
     {

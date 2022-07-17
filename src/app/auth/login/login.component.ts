@@ -63,6 +63,9 @@ export class LoginComponent implements OnInit {
           this.authService.login();
           this.router.navigate(['/system', 'bill']);
         } else {
+          // console.log('user', user);
+          // console.log('user.password', user.password);
+          // console.log('formData.password', formData.password);
           this.showMessage({
             text: 'Пароль не вірний',
             type: 'danger',
