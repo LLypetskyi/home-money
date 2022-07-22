@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, AsyncValidatorFn, AbstractControl } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators, AsyncValidatorFn, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { User } from 'src/app/shared/models/user.model';
@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class RegistrationComponent implements OnInit {
 
-  form!: FormGroup;
+  form!: UntypedFormGroup;
 
 
   constructor(
@@ -23,11 +23,11 @@ export class RegistrationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails()),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
-      'name': new FormControl(null, [Validators.required]),
-      'agree': new FormControl(false, [Validators.requiredTrue]),
+    this.form = new UntypedFormGroup({
+      'email': new UntypedFormControl(null, [Validators.required, Validators.email], this.forbiddenEmails()),
+      'password': new UntypedFormControl(null, [Validators.required, Validators.minLength(6)]),
+      'name': new UntypedFormControl(null, [Validators.required]),
+      'agree': new UntypedFormControl(false, [Validators.requiredTrue]),
     });
   }
 
