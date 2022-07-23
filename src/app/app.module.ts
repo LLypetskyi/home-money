@@ -33,4 +33,4 @@ import { SystemModule } from './system/system.module';
     CUSTOM_ELEMENTS_SCHEMA
   ],
 })
-export class AppModule {}
+export class AppModule { }
