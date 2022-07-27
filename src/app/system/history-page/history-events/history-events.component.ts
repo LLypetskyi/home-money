@@ -11,6 +11,10 @@ export class HistoryEventsComponent implements OnInit {
   @Input() categories: Category[] = [];
   @Input() events: WFMEvent[] = [];
 
+  searchValue = '';
+  searchPlaceholder = 'Сума';
+  searchField = 'amount';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -27,4 +31,14 @@ export class HistoryEventsComponent implements OnInit {
     };
   }
 
+  changeCriteria(field: string) {
+    const nameMap: any = {
+      amount: 'Сума',
+      date: 'Дата',
+      category: 'Категорія',
+      type: 'Тип',
+    };
+    this.searchPlaceholder = nameMap[field];
+    this.searchField = field;
+  }
 }
