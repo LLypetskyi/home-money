@@ -22,6 +22,8 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   events: WFMEvent[] = [];
   chartData: any = [];
 
+  isFilterVisible = false;
+
   ngOnInit(): void {
     this.sub1 = combineLatest(
       this.categoriesService.getCategories(),
@@ -48,6 +50,21 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
         }, 0)
       });
     });
+  }
+
+  private toggleFilterVisibility(dir: boolean) {
+    this.isFilterVisible = dir;
+  }
+
+  openFilter() {
+    this.toggleFilterVisibility(true);
+  }
+
+  onFilterApply() {
+  }
+
+  onFilterCancel() {
+    this.toggleFilterVisibility(false);
   }
 
   ngOnDestroy() {
