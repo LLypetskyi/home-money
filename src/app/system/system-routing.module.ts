@@ -10,13 +10,15 @@ import { RecordsPageComponent } from './records-page/records-page.component';
 import { HistoryDetailComponent } from './history-page/history-detail/history-detail.component';
 
 const routes: Routes = [
-  {path: 'system',  component: SystemComponent, children: [
-    { path: 'bill', component:BillPageComponent },
-    { path: 'history', component: HistoryPageComponent},
-    { path: 'planning', component: PlanningPageComponent },
-    { path: 'records', component: RecordsPageComponent },
-    { path: 'history/:id', component: HistoryDetailComponent }
-  ]}
+  {
+    path: '', component: SystemComponent, children: [
+      { path: 'bill', component: BillPageComponent },
+      { path: 'history', component: HistoryPageComponent },
+      { path: 'planning', component: PlanningPageComponent },
+      { path: 'records', component: RecordsPageComponent },
+      { path: 'history/:id', component: HistoryDetailComponent }
+    ]
+  }
 ];
 
 @NgModule({
