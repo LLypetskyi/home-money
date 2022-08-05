@@ -24,7 +24,7 @@
                 class="checkbox"
                 type="checkbox"
                 [value]="t.type"
-                (change)="hendleChangeType($event.target)"
+                (change)="hendleChangeType($any($event.target))"
               />
               <span>{{ t.label }}</span>
             </label>
@@ -38,7 +38,7 @@
                 class="checkbox"
                 type="checkbox"
                 [value]="c.id"
-                (change)="hendleCangeCategory($event.target)"
+                (change)="hendleCangeCategory($any($event.target))"
               />
               <span>{{ c.name }}</span>
             </label>
@@ -52,7 +52,7 @@
           >
             Відміна
           </button>
-          <button type="button" class="btn btn-primary">Застосувати</button>
+          <button type="button" class="btn btn-primary" (click)="applyFilter()">Застосувати</button>
         </div>
       </div>
     </div>

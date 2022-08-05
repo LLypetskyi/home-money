@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 95800,
+    "value": 94600,
     "currency": "UAH"
   },
   "categories": [
@@ -40,7 +40,7 @@
       "type": "income",
       "amount": 1250,
       "category": 2,
-      "date": "12.06.2022 19:49:02",
+      "date": "12.08.2022 19:49:02",
       "description": "Подарували їжу в гостях"
     },
     {
@@ -48,14 +48,14 @@
       "type": "outcome",
       "amount": 1300,
       "category": 1,
-      "date": "13.06.2022 19:49:02",
+      "date": "13.08.2022 19:49:02",
       "description": "Купив посудомийку"
     },
     {
       "type": "income",
       "amount": 1480,
       "category": 2,
-      "date": "17.06.2022 14:00:48",
+      "date": "17.08.2022 14:00:48",
       "id": 3,
       "description": "Похід в Білий Лев з баллами. Безкоштовна їжа"
     },
@@ -63,7 +63,7 @@
       "type": "outcome",
       "amount": 2470,
       "category": 2,
-      "date": "17.06.2022 14:00:58",
+      "date": "17.08.2022 14:00:58",
       "id": 4,
       "description": "Закупівля на тиждень"
     },
@@ -71,7 +71,7 @@
       "type": "outcome",
       "amount": 4000,
       "category": 3,
-      "date": "10.06.2022 14:01:58",
+      "date": "10.08.2022 14:01:58",
       "id": 5,
       "description": "Заправка + ТО"
     },
@@ -79,7 +79,7 @@
       "type": "outcome",
       "amount": 1200,
       "category": 3,
-      "date": "22.07.2022 18.30.50",
+      "date": "22.08.2022 18.30.50",
       "description": "заправка",
       "id": 6
     },
@@ -87,9 +87,17 @@
       "type": "outcome",
       "amount": 3000,
       "category": 3,
-      "date": "22.07.2022 18.32.06",
+      "date": "22.08.2022 18.32.06",
       "description": "тест",
       "id": 7
+    },
+    {
+      "type": "outcome",
+      "amount": 1200,
+      "category": 2,
+      "date": "06.08.2022 00.15.45",
+      "description": "тест фільтр",
+      "id": 8
     }
   ]
 }

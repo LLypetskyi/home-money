@@ -32,6 +32,9 @@ export class HistoryFilterComponent implements OnInit {
   ngOnInit(): void { }
 
   closeFilter() {
+    this.selectedTypes = [];
+    this.selectedCategories = [];
+    this.selectedPeriod = 'd';
     this.onFilterCancel.emit();
   }
 
@@ -62,22 +65,29 @@ export class HistoryFilterComponent implements OnInit {
 
 
   // Метод який обєднує логіку hendleChangeType та hendleCangeCategory
-  
-  private calculateInputParams(field: string, checked: boolean, value: string) {
+
+  private calculateInputParams(field: 'selectedTypes' | 'selectedCategories', checked: boolean, value: string) {
     if (checked) {
-      this[field].indexOf(value) != -1 ? this[field].push(value) : null;
+      this[field].indexOf(value) === -1 ? this[field].push(value) : null;
     } else {
       this[field] = this[field].filter(i => i !== value);
     }
   }
 
-  hendleChangeType({ checked, value }) {
-    this.calculateInputParams('selectedTypes', checked, value);
+  hendleChangeType(target: HTMLInputElement) {
+    this.calculateInputParams('selectedTypes', target.checked, target.value);
   }
 
-  hendleCangeCategory({ checked, value }) {
-    this.calculateInputParams('selectedCategories', checked, value);
+  hendleCangeCategory(target: HTMLInputElement) {
+    this.calculateInputParams('selectedCategories', target.checked, target.value);
   }
 
+  applyFilter() {
+    this.onFilterApply.emit({
+      types: this.selectedTypes,
+      categories: this.selectedCategories,
+      period: this.selectedPeriod
+    });
+  }
 
 }
