@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersService } from './shared/services/users.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './shared/services/auth.service';
+import { AuthGuard } from './shared/services/auth.guard';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { AuthService } from './shared/services/auth.service';
     NgxChartsModule
   ],
 
-  providers: [UsersService, AuthService],
+  providers: [UsersService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
