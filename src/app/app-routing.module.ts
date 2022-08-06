@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
@@ -8,6 +10,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./system/system.module').then((x) => x.SystemModule),
   },
+  { path: '**', component: NotFoundComponent }
 ];
 
 // example from https://stackoverflow.com/
@@ -23,4 +26,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
