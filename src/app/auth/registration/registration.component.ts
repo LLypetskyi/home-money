@@ -20,7 +20,7 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.form = new UntypedFormGroup({
@@ -36,9 +36,9 @@ export class RegistrationComponent implements OnInit {
     const user = new User(email, password, name);
     this.usersService.createNewUser(user)
       .subscribe((user: User) => {
-        this.router.navigate(["/login"], {
+        this.router.navigate(["/auth/login"], {
           queryParams: {
-            nowCanlogin : true,
+            nowCanlogin: true,
           }
         })
       });

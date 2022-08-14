@@ -16,15 +16,15 @@ export class HeaderComponent implements OnInit {
   user!: User;
 
   constructor(private authService: AuthService,
-              private router: Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user') || '{}');
   }
 
-  onLogout(){
+  onLogout() {
     this.authService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
 
 }
