@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators, AsyncValidatorFn, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 import { User } from 'src/app/shared/models/user.model';
 import { UsersService } from '../../shared/services/users.service';
-import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -19,8 +21,11 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private title: Title
+  ) {
+    title.setTitle('Реєстрація')
+  }
 
   ngOnInit(): void {
     this.form = new UntypedFormGroup({

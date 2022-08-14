@@ -7,6 +7,7 @@ import { User } from 'src/app/shared/models/user.model';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { fadeStateTrigger } from '../../shared/animations/fade.animation';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'wfm-login',
@@ -22,8 +23,18 @@ export class LoginComponent implements OnInit {
     private usersService: UsersService,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private title: Title,
+    private meta: Meta
+  ) {
+    title.setTitle('Вхід в систему');
+    meta.addTags([
+      { name: 'keywords', content: 'логін, вхід, система' },
+      { name: 'description', content: 'Сторінка для входу в систему' }
+    ]
+
+    );
+  }
 
   ngOnInit() {
     this.message = new Message('danger', '');
